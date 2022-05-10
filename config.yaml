@@ -73,7 +73,7 @@ params:
     - teaching
   # Customize copyright value "© 2017 <CUSTOMIZATION>. All Rights Reserved"
   footer:
-    copyright: '<a href="https://github.com/H-Mateus">Mateus Harrington</a>'
+    copyright: '<a href="https://github.com/H-Mateus">Mateus Harrington</a>. All Rights Reserved'
   # Hide sidebar on all article page to let article take full width to improve reading, and enjoy wide images and cover images. (true: enable, false: disable)
   clearReading: no
   comment:
