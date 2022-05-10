@@ -7,7 +7,7 @@ disqusShortname: hugo-tranquilpeak-theme
 paginate: 7
 canonifyurls: yes
 permalinks:
-  posts: /:year/:month/:slug/
+  posts: "/:year/:month/:day/:slug/"
 taxonomies:
   archive: archives
   category: categories
@@ -18,7 +18,7 @@ markup:
     ordered: no
     startLevel: 1
 author:
-  bio: The resouces associated with the Intorduction to R Markdown by [Dr. Mateus Harrington](https://gmbernardoharrington.netlify.app/), initally offered as part of the [Researcher Summer school at Keele University](https://www.keele.ac.uk/kiite/conferences/researchersummerschool/)
+  bio: The resouces associated with the Intorduction to R Markdown by [Dr. Mateus Harrington](https://gmbernardoharrington.netlify.app/), initally offered as part of the [Researcher Summer school at Keele University 2022](https://www.keele.ac.uk/kiite/conferences/researchersummerschool/)
   # this overrides any images
   #gravatarEmail: 
   job: Bioinformatician
@@ -32,6 +32,11 @@ menu:
       pre: <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
       url: https://github.com/H-Mateus/intro-to-rmarkdown
       weight: 1
+    - identifier: linkedin
+      name: LinkedIn
+      pre: <i class="sidebar-button-icon fab fa-lg fa-linkedin" aria-hidden="true"></i>
+      url:  https://linkedin.com/in/gmb-harrington
+      weight: 2
   main:
     - identifier: home
       name: Home
@@ -185,4 +190,4 @@ params:
   sidebarBehavior: 2
   syntaxHighlighter: highlight.js
   thumbnailImage: yes
-  thumbnailImagePosition: bottom
+  thumbnailImagePosition: left
