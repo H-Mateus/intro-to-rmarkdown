@@ -22,7 +22,7 @@ If you want to add your site to this showcase, click [here](https://github.com/k
 
 ## Eric Bouchut's blog
 
-[![Eric Bouchut's blog](http://i.imgur.com/zQmKIKNm.png)](http://ericbouchut.com/)
+[![Eric Bouchut's blog](https://i.imgur.com/zQmKIKNm.png)](http://ericbouchut.com/)
 
 ## Robin Hu's blog
 
