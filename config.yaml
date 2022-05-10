@@ -1,6 +1,6 @@
-baseURL: https://example.org/
-languageCode: en-us
-defaultContentLanguage: en-us
+baseURL: https://intro-to-rmarkdown.netlify.app
+languageCode: en-gb
+defaultContentLanguage: en-gb
 title: Hugo tranquilpeak theme
 theme: hugo-tranquilpeak-theme
 disqusShortname: hugo-tranquilpeak-theme
@@ -18,59 +18,64 @@ markup:
     ordered: no
     startLevel: 1
 author:
-  bio: Super bio with markdown support **COOL**
-  gravatarEmail: thibaud.lepretre@gmail.com
-  job: Your job title
-  location: France
-  name: Firstname Lastname
-  picture: https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png
+  bio: The resouces associated with the Intorduction to R Markdown by [Dr. Mateus Harrington](https://gmbernardoharrington.netlify.app/), initally offered as part of the [Researcher Summer school at Keele University](https://www.keele.ac.uk/kiite/conferences/researchersummerschool/)
+  # this overrides any images
+  #gravatarEmail: 
+  job: Bioinformatician
+  location: Wales
+  name: Intoduction to R Markdown
+  picture: ./img/rmarkdown_logo.jpg
 menu:
   links:
     - identifier: github
       name: GitHub
       pre: <i class="sidebar-button-icon fab fa-lg fa-github" aria-hidden="true"></i>
-      url: https://github.com/kakawait
+      url: https://github.com/H-Mateus/intro-to-rmarkdown
       weight: 1
-    - identifier: stackoverflow
-      name: Stack Overflow
-      pre: <i class="sidebar-button-icon fab fa-lg fa-stack-overflow" aria-hidden="true"></i>
-      url: https://stackoverflow.com/users/636472/kakawait
-      weight: 2
   main:
     - identifier: home
       name: Home
       pre: <i class="sidebar-button-icon fas fa-lg fa-home" aria-hidden="true"></i>
       url: /
       weight: 1
-    - identifier: categories
-      name: Categories
-      pre: <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
-      url: /categories
-      weight: 2
-    - identifier: tags
-      name: Tags
-      pre: <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
-      url: /tags
-      weight: 3
-    - identifier: archives
-      name: Archives
-      pre: <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
-      url: /archives
-      weight: 4
+    # - identifier: categories
+    #   name: Categories
+    #   pre: <i class="sidebar-button-icon fas fa-lg fa-bookmark" aria-hidden="true"></i>
+    #   url: /categories
+    #   weight: 2
+    # - identifier: tags
+    #   name: Tags
+    #   pre: <i class="sidebar-button-icon fas fa-lg fa-tags" aria-hidden="true"></i>
+    #   url: /tags
+    #   weight: 3
+    # - identifier: archives
+    #   name: Archives
+    #   pre: <i class="sidebar-button-icon fas fa-lg fa-archive" aria-hidden="true"></i>
+    #   url: /archives
+    #   weight: 4
     - identifier: about
       name: About
       pre: <i class="sidebar-button-icon fas fa-lg fa-question" aria-hidden="true"></i>
       url: /#about
       weight: 5
-  misc:
-    - identifier: rss
-      name: RSS
-      pre: <i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden="true"></i>
-      url: /index.xml
-      weight: 1
+  # misc:
+  #   - identifier: rss
+  #     name: RSS
+  #     pre: <i class="sidebar-button-icon fas fa-lg fa-rss" aria-hidden="true"></i>
+  #     url: /index.xml
+  #     weight: 1
 params:
   autoThumbnailImage: yes
-  clearReading: yes
+  keywords:
+    - workshop
+    - R Markdown
+    - Keele
+    - teaching
+  # Customize copyright value "© 2017 <CUSTOMIZATION>. All Rights Reserved"
+  footer:
+    copyright: '<a href="https://github.com/H-Mateus">Mateus Harrington</a>'
+  # Hide sidebar on all article page to let article take full width to improve reading, and enjoy wide images and cover images. (true: enable, false: disable)
+  clearReading: no
   comment:
     disqus:
       enable: yes
@@ -83,7 +88,14 @@ params:
         language: en
         pagerDirection: first
         perPage: 10
-  coverImage: images/cover.jpg
+  
+  # Your blog cover picture. I STRONGLY recommend you to use a CDN to speed up loading of pages.
+  # There is many free CDN like Cloudinary or you can also use indirectly
+  # by using services like Google Photos.
+  # Current image is on AWS S3 and delivered by AWS CloudFront.
+  # Otherwise put your image in folder `static/_images/` (development)  or in `source/assets/images/` if you can't or don't want to build the theme,
+  # and use relative url : `your-image.png`
+  coverImage: ./img/cover.jpg
   customJS:
     - async: yes
       crossorigin: anonymous
@@ -135,13 +147,16 @@ params:
       defer: yes
       integrity: sha512-28oDiQZGKUVN6wQ7PSLPNipOcmkCALXKwOi7bnkyFf8QiMZQxG9EQoy/iiNx6Zxj2cG2SbVa4dXKigQhu7GiFw==
       src: https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/languages/yaml.min.js
-  description: Hugo tranquilpeak theme demo
+  description: Introduction to R Markdown workshop
   header:
     rightLink:
       class: ''
       icon: ''
       url: /#about
+  # Define categories will create hierarchy between parents: `categories = ["foo", "bar"]` will consider "bar" a sub-category of "foo".
+  # If false it will flat categories.
   hierarchicalCategories: yes
+  # Display an image gallery at the end of a post which have photos variables (false: disabled, true: enabled)
   imageGallery: yes
   sharingOptions:
     - icon: fab fa-facebook-square
@@ -153,7 +168,21 @@ params:
     - icon: fab fa-linkedin
       name: Linkedin
       url: https://www.linkedin.com/sharing/share-offsite/?url=%s
-  sidebarBehavior: 1
+      
+  # Customization
+  # Define the behavior of the sidebar
+  # 1: Display extra large sidebar on extra large screen, large sidebar on large screen,
+  #    medium sidebar on medium screen and header bar on small screen and
+  # extra large sidebar is swiped on extra large screen and large sidebar on all lower screen (default)
+  # 2: Display large sidebar on large screen, medium sidebar on medium screen and
+  #    header bar on small screen and large sidebar is swiped
+  # 3: Display medium sidebar on large and medium screen and header bar on small screen and
+  #    medium sidebar is swiped
+  # 4: Display header bar on all screens, extra large sidebar is swiped on extra large screen and
+  #    large sidebar is swiped on all lower screens
+  # 5: Display header bar on all screens and large sidebar is swiped on large screen
+  # 6: Display header bar on all screens and medium sidebar is swiped
+  sidebarBehavior: 2
   syntaxHighlighter: highlight.js
   thumbnailImage: yes
   thumbnailImagePosition: bottom

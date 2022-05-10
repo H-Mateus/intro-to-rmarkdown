@@ -9,6 +9,7 @@ tags:
 thumbnailImage: //d1u9biwaxjngwg.cloudfront.net/elements-showcase/vintage-140.jpg
 thumbnailImagePosition: left
 title: Elements showcase
+draft: yes
 ---
 
 Check out how Tranquilpeak theme display well HTML elements (title, paragraph, blockquote, table and more..). It's simple and elegant.
