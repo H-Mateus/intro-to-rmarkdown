@@ -1,7 +1,7 @@
 baseURL: https://intro-to-rmarkdown.netlify.app
 languageCode: en-gb
 defaultContentLanguage: en-gb
-title: Hugo tranquilpeak theme
+title: Intro to R Markdown
 theme: hugo-tranquilpeak-theme
 disqusShortname: hugo-tranquilpeak-theme
 paginate: 7
