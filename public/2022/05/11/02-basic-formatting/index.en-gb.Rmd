@@ -1,0 +1,18 @@
+---
+title: 02. Basic formatting
+author: Mateus Harrington
+date: '2022-05-11'
+slug: 02-basic-formatting
+categories:
+  - R
+tags:
+  - R Markdown
+summary: 'Illustrating some basic formatting, inluding headers, bold text, lists, greek letters and equations'
+weight: 3
+coverImage: ./img/typewriter.jpg
+coverMeta: out
+coverSize: partial
+thumbnailImage: ./img/start_sign.jpg
+thumbnailImagePosition: left
+---
+
