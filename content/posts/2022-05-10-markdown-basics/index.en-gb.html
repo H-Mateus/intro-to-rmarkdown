@@ -1,5 +1,5 @@
 ---
-title: Rational and Markdown basics
+title: 01. Rational and Markdown basics
 author: Mateus Harrington
 date: '2022-05-10'
 slug: rational-and-markdown-basics
@@ -35,9 +35,9 @@ This is because notepad is primarily for viewing and editing plaintext files, an
 By contrast, in a markup language, you’d have to use some kind of text to denote that the it should be bold.
 In Markdown we can do this by wrapping out text with two <code>*</code>, for example:</p>
 <ul>
-<li>so to get: <strong>this text is bold</strong> we can use **this text is bold**</li>
-<li>and for <em>italics</em> use a single <code>*</code>: <em>this text is in italics</em> = *this text is in italics*</li>
-<li>and to do both we unsurprisingly use three: <strong><em>this is bold and italicised</em></strong> = ***this is bold and italicised***</li>
+<li>so to get: <strong>this text is bold</strong> we can use <code>**this text is bold**</code></li>
+<li>and for <em>italics</em> use a single <code>*</code>: <em>this text is in italics</em> = <code>*this text is in italics*</code></li>
+<li>and to do both we unsurprisingly use three: <strong><em>this is bold and italicised</em></strong> = <code>***this is bold and italicised***</code></li>
 </ul>
 </div>
 <div id="the-advantages-of-plaintext" class="section level1">
@@ -45,10 +45,25 @@ In Markdown we can do this by wrapping out text with two <code>*</code>, for exa
 <p>You may be thinking that this seems more complicated than just clicking a button, so what’s the advantage doing things the plaintext way?</p>
 <ul>
 <li><strong>Versatility</strong>. Markdown can be used for everything from notes, books, presentations, websites to academic papers</li>
-<li><strong>Portability</strong>. No matter what device or operating system you are, or ever will use, you can be confident that you will be able to view and edit any plaintext document. There’re literally hundreds of text editors you can choose from too, so you’re sure to find one that suits your needs</li>
-<li><strong>Durability</strong>. Ever wonder what you happen if Microsoft just up and decided you need to pay £10 every time you wanted to open a Word doc? What if you had to pay per edit? What if they just scraped the software and no longer supported it? If all the documents you’d created throughout your professional life with made in Microsoft Office, you’d be kinda screwed. Not so with plaintext. Since markup languages are just simple formating rules, no one owns them, and no one can take them away from you, meaning your work is safe so long as computers exist</li>
+<li><strong>Portability</strong>. No matter what device or operating system you are, or ever will use, you can be confident that you will be able to view and edit any plaintext document. There are literally hundreds of text editors you can choose from too, so you’re sure to find one that suits your needs</li>
+<li><strong>Durability</strong>. Ever wonder what you happen if Microsoft just up and decided you need to pay £10 every time you wanted to open a Word doc? What if you had to pay per edit? What if they just scraped the software and no longer supported it? If all the documents you’d created throughout your professional life with made in Microsoft Office, you’d be kinda screwed. Not so with plaintext. Since markup languages are just simple formatting rules, no one owns them, and no one can take them away from you, meaning your work is safe so long as computers exist</li>
 </ul>
 </div>
 <div id="how-do-the-outputs-work" class="section level1">
 <h1>How do the outputs work?</h1>
+<p>So how can we make webpages or a pdf from Markdown?
+Well let’s think about webpages.
+A webpage is just a <a href="https://en.wikipedia.org/wiki/HTML">HTML</a> file, which stands for HyperText <strong>Markup</strong> Language.
+Notice the familiar word in there?
+html is just another markup language, and so it’s relatively easy for a piece of software to translate between markup languages.</p>
+<p>In html, to make text bold we wrap the text between a tag like so <code>&lt;b&gt; this is some bold text &lt;/b&gt;</code>.
+So a piece of software like <a href="https://pandoc.org/">pandoc</a> can read in a Markdown file and translate the formatting to html, thus giving you a new file you can put up as a webpage (Figure <a href="#fig:pandoc-img">1</a>).
+This is part of the reason why plaintext formats are so versatile.</p>
+
+<div class="figure"><span style="display:block;" id="fig:pandoc-img"></span>
+<img src="pandoc.png" alt="An illustration of pandoc conversions" width="425" />
+<p class="caption">
+Figure 1: An illustration of pandoc conversions
+</p>
+</div>
 </div>

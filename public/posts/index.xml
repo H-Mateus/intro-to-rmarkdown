@@ -9,20 +9,20 @@
     <lastBuildDate>Tue, 10 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://intro-to-rmarkdown.netlify.app/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello R Markdown</title>
-      <link>https://intro-to-rmarkdown.netlify.app/2022/05/index.en-gb/</link>
+      <link>https://intro-to-rmarkdown.netlify.app/2022/05/10/hello-r-markdown/</link>
       <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://intro-to-rmarkdown.netlify.app/2022/05/index.en-gb/</guid>
+      <guid>https://intro-to-rmarkdown.netlify.app/2022/05/10/hello-r-markdown/</guid>
       <description>R Markdown is a way of generating fully reproducible and dynamic documents, in which both text and code can be combined</description>
     </item>
     
     <item>
       <title>Rational and Markdown basics</title>
-      <link>https://intro-to-rmarkdown.netlify.app/2022/05/index.en-gb/</link>
+      <link>https://intro-to-rmarkdown.netlify.app/2022/05/10/rational-and-markdown-basics/</link>
       <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://intro-to-rmarkdown.netlify.app/2022/05/index.en-gb/</guid>
-      <description>Why both with R Markdown in the first place?</description>
+      <guid>https://intro-to-rmarkdown.netlify.app/2022/05/10/rational-and-markdown-basics/</guid>
+      <description>Why bother with Markdown in the first place?</description>
     </item>
     
   </channel>
