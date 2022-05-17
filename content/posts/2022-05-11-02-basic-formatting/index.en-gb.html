@@ -1,5 +1,5 @@
 ---
-title: 02. Basic formatting
+title: 02. Basic formatting with Markdown
 author: Mateus Harrington
 date: '2022-05-11'
 slug: 02-basic-formatting
@@ -7,7 +7,7 @@ categories:
   - R
 tags:
   - R Markdown
-summary: 'Illustrating some basic formatting, including headers, bold text, lists, greek letters, equations and the YAML header'
+summary: 'Illustrating some basic formatting, including headers, bold text, lists in Markdown'
 weight: 3
 coverImage: ./img/typewriter.jpg
 coverMeta: out
@@ -29,19 +29,20 @@ output:
 </ul></li>
 <li><a href="#simple-text-formating"><span class="toc-section-number">2</span> Simple text formating</a>
 <ul>
-<li><a href="#lists"><span class="toc-section-number">2.1</span> Lists</a></li>
-<li><a href="#links-and-images"><span class="toc-section-number">2.2</span> Links and images</a></li>
+<li><a href="#paragraphs"><span class="toc-section-number">2.1</span> Paragraphs</a></li>
+<li><a href="#footnotes"><span class="toc-section-number">2.2</span> Footnotes</a></li>
+<li><a href="#lists"><span class="toc-section-number">2.3</span> Lists</a></li>
 </ul></li>
-<li><a href="#math"><span class="toc-section-number">3</span> Equations</a>
+<li><a href="#links-and-images"><span class="toc-section-number">3</span> Links and images</a></li>
+<li><a href="#math"><span class="toc-section-number">4</span> Equations</a>
 <ul>
-<li><a href="#greek-letters"><span class="toc-section-number">3.1</span> Greek letters</a></li>
+<li><a href="#greek-letters"><span class="toc-section-number">4.1</span> Greek letters</a></li>
 </ul></li>
-<li><a href="#yaml-header"><span class="toc-section-number">4</span> The YAML header</a></li>
 </ul>
 </div>
 
 <p>Hear are examples of simple formating in Markdown.
-Note that nothing except the YAML header section (section <a href="#yaml-header">4</a>) is specific to R Markdown.</p>
+Note that everything demonstrated here, except the Equations section (section <a href="#math">4</a>), is part of the base Markdown functionality.</p>
 <div id="headings" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Headings</h1>
 <p>We can create a heading with <code>#</code>, so for a level one heading we use:</p>
@@ -59,7 +60,7 @@ If we have numbered sections turned on (as we do in on this page), these heading
 </div>
 <div id="simple-text-formating" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Simple text formating</h1>
-<p>As demonstrated in the <a href="../../../../2022/05/10/rational-and-markdown-basics">prior page</a>, we can wrap text with <code>*</code> to get bold and italic text:</p>
+<p>As demonstrated in the <a href="../../../../2022/05/10/rational-and-markdown-basics">prior page</a>, we can wrap text with <code>*</code> to get bold and italic text, but we have other formatting options too:</p>
 <ul>
 <li><strong>bold text</strong> = <code>**bold text**</code></li>
 <li><em>italic text</em> = <code>*italic text*</code></li>
@@ -74,18 +75,30 @@ If we have numbered sections turned on (as we do in on this page), these heading
 <li>H<sub>2</sub>O = <code>H~2~O</code></li>
 <li>X<sup>2</sup> = <code>X^2^</code></li>
 </ul>
-<p>Note that there are other ways of dealing with super and subscripts, please see the Equations section (section <a href="#math">3</a>) for that.</p>
-<p>For a horizontal rule use <code>---</code>:</p>
-<hr />
-<p>For footnotes we can use <code>[^1]</code> by the text, and then define the footnote on a separate line with <code>[^1]:</code></p>
-<p>Here’s a sentence with a footnote. <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>Note that there are other ways of dealing with super and subscripts, please see the Equations section (section <a href="#math">4</a>) for that.</p>
+<div id="paragraphs" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Paragraphs</h2>
 <p>To start a new paragraph you need to leave a blank line.</p>
 <p>This is a second paragraph.
 I’d recommend putting each sentence on separate lines as I find it easier to read when looking at the source file, and it comes in handy if you use version control, but this isn’t strictly needed.</p>
-<div id="lists" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Lists</h2>
+<p>For a horizontal rule use on it’s own line <code>---</code>:</p>
+<hr />
+<p>As a general recommendation, if your output isn’t looking how you expect, try using blank lines between elements.
+Markdown likes things to have room to breath!</p>
+</div>
+<div id="footnotes" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Footnotes</h2>
+<p>For footnotes we can use <code>[^1]</code> by the text, and then define the footnote on a separate line with <code>[^1]:</code></p>
+<pre><code>Here&#39;s a sentence with a footnote. [^1]
+
+[^1]: This is the footnote.</code></pre>
+<p>Which looks like this:</p>
+<p>Here’s a sentence with a footnote. <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+</div>
+<div id="lists" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Lists</h2>
 <p>To start an unordered list we can use a <code>-</code>.
-Note that there should be a blank line before and after the dash.
+Note that there should be a blank line before and after the list.
 For the sublist we simply indent the <code>-</code></p>
 <ul>
 <li>one item</li>
@@ -110,8 +123,9 @@ If you check the source file for this page you’ll see that I just used <code>1
 </ul></li>
 </ol>
 </div>
-<div id="links-and-images" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Links and images</h2>
+</div>
+<div id="links-and-images" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Links and images</h1>
 <p>To insert a link we wrap the text we want to appear in <code>[]</code> and follow with the address in <code>()</code>:</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Hyperlink">Example link</a> = <code>[Example link](https://en.wikipedia.org/wiki/Hyperlink)</code></li>
@@ -123,9 +137,8 @@ If you check the source file for this page you’ll see that I just used <code>1
 <p>Note that I wouldn’t recommend inserting images like this when working with R Markdown as there are alternatives that are easier to control.
 Please see <a href="../../../../2022/05/11/03-including-code/">this page</a> for more details on this.</p>
 </div>
-</div>
-<div id="math" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Equations</h1>
+<div id="math" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Equations</h1>
 <p>Inline LaTeX equations can be made by wrapping with <code>$</code>:</p>
 <ul>
 <li>Here is some inline maths <span class="math inline">\(f(k) = {n \choose k} p^{k} (1-p)^{n-k}\)</span> = <code>$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$</code></li>
@@ -134,8 +147,8 @@ Please see <a href="../../../../2022/05/11/03-including-code/">this page</a> for
 <p><span class="math display">\[f(k) = {n \choose k} p^{k} (1-p)^{n-k}\]</span></p>
 <p>which looks like this:</p>
 <p><code>$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$</code></p>
-<div id="greek-letters" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Greek letters</h2>
+<div id="greek-letters" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Greek letters</h2>
 <p>For Greek letters, we can just write the name of the letter after a <code>\</code>
 Note that this needs to be in LaTeX math, so either wrapped in single <code>$</code> or double <code>$$</code></p>
 <ul>
@@ -146,9 +159,6 @@ Note that this needs to be in LaTeX math, so either wrapped in single <code>$</c
 </ul>
 <p>There are lots of examples of more complex LaTeX math online if you need it, <a href="https://en.m.wikibooks.org/wiki/LaTeX/Mathematics">this page</a> for instance</p>
 </div>
-</div>
-<div id="yaml-header" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> The YAML header</h1>
 </div>
 <div class="footnotes footnotes-end-of-document">
 <hr />

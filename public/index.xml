@@ -6,7 +6,7 @@
     <description>Recent content on Intro to R Markdown</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://intro-to-rmarkdown.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://intro-to-rmarkdown.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello R Markdown</title>
       <link>https://intro-to-rmarkdown.netlify.app/2022/05/10/hello-r-markdown/</link>
@@ -17,7 +17,7 @@
     </item>
     
     <item>
-      <title>01. Rational and Markdown basics</title>
+      <title>01. Rational and motivations</title>
       <link>https://intro-to-rmarkdown.netlify.app/2022/05/10/rational-and-markdown-basics/</link>
       <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
       
@@ -26,12 +26,12 @@
     </item>
     
     <item>
-      <title>02. Basic formatting</title>
+      <title>02. Basic formatting with Markdown</title>
       <link>https://intro-to-rmarkdown.netlify.app/2022/05/11/02-basic-formatting/</link>
       <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://intro-to-rmarkdown.netlify.app/2022/05/11/02-basic-formatting/</guid>
-      <description>Illustrating some basic formatting, including headers, bold text, lists, greek letters, equations and the YAML header</description>
+      <description>Illustrating some basic formatting, including headers, bold text, lists in Markdown</description>
     </item>
     
     <item>
@@ -50,6 +50,15 @@
       
       <guid>https://intro-to-rmarkdown.netlify.app/2022/05/11/04-academic-writing/</guid>
       <description>Considerations for academic writing, mainly how we can deal with references</description>
+    </item>
+    
+    <item>
+      <title>05. Further resources</title>
+      <link>https://intro-to-rmarkdown.netlify.app/2022/05/17/05-further-resources/</link>
+      <pubDate>Tue, 17 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://intro-to-rmarkdown.netlify.app/2022/05/17/05-further-resources/</guid>
+      <description>A list of resources for further learning</description>
     </item>
     
   </channel>

@@ -1,5 +1,5 @@
 ---
-title: 02. Basic formatting
+title: 02. Basic formatting with Markdown
 author: Mateus Harrington
 date: '2022-05-11'
 slug: 02-basic-formatting
@@ -7,7 +7,7 @@ categories:
   - R
 tags:
   - R Markdown
-summary: 'Illustrating some basic formatting, including headers, bold text, lists, greek letters, equations and the YAML header'
+summary: 'Illustrating some basic formatting, including headers, bold text, lists in Markdown'
 weight: 3
 coverImage: ./img/typewriter.jpg
 coverMeta: out

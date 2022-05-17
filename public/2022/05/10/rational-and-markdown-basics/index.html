@@ -7,7 +7,7 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "01. Rational and Markdown basics",
+  "headline": "01. Rational and motivations",
   
   "image": "https://intro-to-rmarkdown.netlify.app/img/i_love_markdown.png",
   
@@ -50,8 +50,8 @@
 
 <meta property="og:description" content="Why bother with Markdown in the first place?">
 <meta property="og:type" content="article">
-<meta property="og:title" content="01. Rational and Markdown basics">
-<meta name="twitter:title" content="01. Rational and Markdown basics">
+<meta property="og:title" content="01. Rational and motivations">
+<meta name="twitter:title" content="01. Rational and motivations">
 <meta property="og:url" content="https://intro-to-rmarkdown.netlify.app/2022/05/10/rational-and-markdown-basics/">
 <meta property="twitter:url" content="https://intro-to-rmarkdown.netlify.app/2022/05/10/rational-and-markdown-basics/">
 <meta property="og:site_name" content="Intro to R Markdown">
@@ -100,7 +100,7 @@
   <meta property="twitter:image" content="https://intro-to-rmarkdown.netlify.app/img/i_love_markdown.jpg">
 
 
-    <title>01. Rational and Markdown basics</title>
+    <title>01. Rational and motivations</title>
 
     <link rel="icon" href="https://intro-to-rmarkdown.netlify.app/favicon.png">
     
@@ -246,7 +246,7 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title">
-      01. Rational and Markdown basics
+      01. Rational and motivations
     </h1>
   
   
@@ -278,9 +278,7 @@ if (!doNotTrack) {
 
 <p>Personally, I find it easy to learn when I’ve a decent grasp as to why I should bother, and a bit of contextualising can help with this.
 To that end, I’ll outline a bit of history and hopefully convince you why writing in plain text carries significant advantages compared to something like Word.</p>
-<p>If you want some great documentation on Markdown, see the excellent <a href="https://www.markdownguide.org/getting-started/">Markdown guide here</a>.
-There are also several free online editors you can use to play around with Markdown, <a href="https://dillinger.io/">Dillinger</a> is one of best.
-I’ll include a few simple formating examples to illustrate, but feel free to skim the resources above and skip this page if you’re already sufficiently convinced this is a thing worth leaning.</p>
+<p>I’ll include a few simple formatting examples to illustrate, but feel free to skim the resources above and skip this page if you’re already sufficiently convinced this is a thing worth leaning.</p>
 <div id="markup-vs-wysiwyg-paradigms" class="section level1">
 <h1>Markup VS WYSIWYG paradigms</h1>
 <p>Markdown is an example of a <a href="https://en.wikipedia.org/wiki/Markup_language">markup language</a>.
@@ -374,7 +372,7 @@ Figure 2: An illustration of the R Markdown compilation
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://intro-to-rmarkdown.netlify.app/2022/05/11/02-basic-formatting/" data-tooltip="02. Basic formatting" aria-label=": 02. Basic formatting">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://intro-to-rmarkdown.netlify.app/2022/05/11/02-basic-formatting/" data-tooltip="02. Basic formatting with Markdown" aria-label=": 02. Basic formatting with Markdown">
           
               <span class="hide-xs hide-sm text-small icon-mr"></span>
               <i class="fa fa-angle-right"></i>
@@ -481,7 +479,7 @@ Figure 2: An illustration of the R Markdown compilation
         </li>
         <li class="post-action">
           
-            <a class="post-action-btn btn btn--default tooltip--top" href="https://intro-to-rmarkdown.netlify.app/2022/05/11/02-basic-formatting/" data-tooltip="02. Basic formatting" aria-label=": 02. Basic formatting">
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://intro-to-rmarkdown.netlify.app/2022/05/11/02-basic-formatting/" data-tooltip="02. Basic formatting with Markdown" aria-label=": 02. Basic formatting with Markdown">
           
               <span class="hide-xs hide-sm text-small icon-mr"></span>
               <i class="fa fa-angle-right"></i>
@@ -669,6 +667,15 @@ $(document).ready(function() {
 });
 </script>
 
+
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      CommonHTML: { linebreaks: { automatic: true } },
+      tex2jax: { inlineMath: [ ['$', '$'], ['\\(','\\)'] ], displayMath: [ ['$$','$$'], ['\\[', '\\]'] ], processEscapes: false },
+      messageStyle: 'none'
+    });
+  </script>
 
 
 
