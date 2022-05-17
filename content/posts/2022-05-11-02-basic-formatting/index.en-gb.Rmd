@@ -21,7 +21,7 @@ output:
 ---
 
 Hear are examples of simple formating in Markdown.
-Note that nothing except the YAML header section (section \@ref(yaml-header)) is specific to R Markdown.
+Note that everything demonstrated here, except the Equations section (section \@ref(math)), is part of the base Markdown functionality.
 
 # Headings
 
@@ -32,7 +32,7 @@ We can create a heading with `#`, so for a level one heading we use:
 - `### Heading level 3`
 
 and so on.
-If we have numbered sections turned on (as we do in on this page), these heading will be automatically numbered.
+If we have numbered sections turned on (as we do in on this page), these headings will be automatically numbered.
 
 ## Level 2 heading example
 
@@ -40,28 +40,109 @@ Like so
 
 # Simple text formating
 
-As demonstrated in the [prior page](../../../../2022/05/10/rational-and-markdown-basics), we can wrap text with `*` to get bold and italic text:
+As demonstrated in the [prior page](../../../../2022/05/10/rational-and-markdown-basics), we can wrap text with `*` to get bold and italic text, but we have other formatting options too:
 
 - **bold text** = `**bold text**`
 - *italic text* = `*italic text*`
 - ***bold and italic text*** = `***bold and italic text***`
+- <u>Underlined text</u> = `<u>Underlined text</u>`
+- ~~Deleted text~~ = `~~Deleted text~~`
+- `code` = `` `code` ``
+- > blockquote = `> blockquote`
+- ==highlight== = `==highlight==`
+-  H~2~O = `H~2~O`
+- X^2^ = `X^2^`
+
+Note that there are other ways of dealing with super and subscripts, please see the Equations section (section \@ref(math)) for that.
+
+## Paragraphs
 
 To start a new paragraph you need to leave a blank line.
 
-This is a second paragraph
-I'd recommend putting sentence on separate lines as I find it easier to read when looking at the source file, and it comes in handy if you use version control.
+This is a second paragraph.
+I'd recommend putting each sentence on separate lines as I find it easier to read when looking at the source file, and it comes in handy if you use version control, but this isn't strictly needed.
+
+For a horizontal rule use on it's own line `---`:
+
+---
+
+As a general recommendation, if your output isn't looking how you expect, try using blank lines between elements.
+Markdown likes things to have room to breath!
+
+## Footnotes
+
+For footnotes we can use `[^1]` by the text, and then define the footnote on a separate line with `[^1]:`
+
+```
+Here's a sentence with a footnote. [^1]
+
+[^1]: This is the footnote.
+```
+
+Which looks like this:
+
+Here's a sentence with a footnote. [^1]
+
+[^1]: This is the footnote.
 
 ## Lists
 
+To start an unordered list we can use a `-`.
+Note that there should be a blank line before and after the list.
+For the sublist we simply indent the `-`
 
+- one item
+- one item
+- one item
+    - one more item
+    - one more item
+    - one more item
 
-Lorem ipsum dolor sit amet, [test link]() consectetur adipiscing elit. **Strong text** pellentesque ligula commodo viverra vehicula. *Italic text* at ullamcorper enim. Morbi a euismod nibh. <u>Underline text</u> non elit nisl. ~~Deleted text~~ tristique, sem id condimentum tempus, metus lectus venenatis mauris, sit amet semper lorem felis a eros. Fusce egestas nibh at sagittis auctor. Sed ultricies ac arcu quis molestie. Donec dapibus nunc in nibh egestas, vitae volutpat sem iaculis. Curabitur sem tellus, elementum nec quam id, fermentum laoreet mi. Ut mollis ullamcorper turpis, vitae facilisis velit ultricies sit amet. Etiam laoreet dui odio, id tempus justo tincidunt id. Phasellus scelerisque nunc sed nunc ultricies accumsan.
+For an ordered list we can use a number followed by a period: `1.`.
+Note that the actual number doesn't really matter as when the document is compiled it'll render the list correctly.
+If you check the source file for this page you'll see that I just used `1.` repeatedly, and yet it renders as you'd want it to.
 
-Interdum et malesuada fames ac ante ipsum primis in faucibus. `Sed erat diam`, blandit eget felis aliquam, rhoncus varius urna. Donec tellus sapien, sodales eget ante vitae, feugiat ullamcorper urna. Praesent auctor dui vitae dapibus eleifend. Proin viverra mollis neque, ut ullamcorper elit posuere eget.
+1. the first item
+1. the second item
+1. the third item
+    - one unordered item
+    - one unordered item
 
-# Greek letters
+# Links and images
 
-# Equations
+To insert a link we wrap the text we want to appear in `[]` and follow with the address in `()`:
 
-# The YAML header {#yaml-header}
+- [Example link](https://en.wikipedia.org/wiki/Hyperlink) = `[Example link](https://en.wikipedia.org/wiki/Hyperlink)`
 
+We can include an image in the same way, but with an `!` at the begining:
+
+- ![Example image](example_image.jpg) = `![Example image](example_image.jpg)`
+
+Note that I wouldn't recommend inserting images like this when working with R Markdown as there are alternatives that are easier to control.
+Please see [this page](../../../../2022/05/11/03-including-code/) for more details on this.
+
+# Equations {#math}
+
+Inline LaTeX equations can be made by wrapping with `$`:
+
+- Here is some inline maths $f(k) = {n \choose k} p^{k} (1-p)^{n-k}$ = `$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$`
+
+Or for a equation block we can use double `$$`:
+
+$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$
+
+which looks like this: 
+
+`$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$`
+
+## Greek letters
+
+For Greek letters, we can just write the name of the letter after a `\`
+Note that this needs to be in LaTeX math, so either wrapped in single `$` or double `$$`
+
+- $\alpha$ == `$\alpha$`
+- $\beta$ == `$\beta$`
+- TNF$\alpha$ == `TNF$\alpha$`
+- $\frac{1}{\delta^2} \times \gamma_3$ == `$\frac{1}{\delta^2} \times \gamma_3$`
+
+There are lots of examples of more complex LaTeX math online if you need it, [this page](https://en.m.wikibooks.org/wiki/LaTeX/Mathematics) for instance

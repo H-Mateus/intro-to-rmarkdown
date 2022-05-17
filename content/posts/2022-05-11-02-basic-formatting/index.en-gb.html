@@ -30,15 +30,18 @@ output:
 <li><a href="#simple-text-formating"><span class="toc-section-number">2</span> Simple text formating</a>
 <ul>
 <li><a href="#lists"><span class="toc-section-number">2.1</span> Lists</a></li>
+<li><a href="#links-and-images"><span class="toc-section-number">2.2</span> Links and images</a></li>
 </ul></li>
-<li><a href="#greek-letters"><span class="toc-section-number">3</span> Greek letters</a></li>
-<li><a href="#equations"><span class="toc-section-number">4</span> Equations</a></li>
-<li><a href="#yaml-header"><span class="toc-section-number">5</span> The YAML header</a></li>
+<li><a href="#math"><span class="toc-section-number">3</span> Equations</a>
+<ul>
+<li><a href="#greek-letters"><span class="toc-section-number">3.1</span> Greek letters</a></li>
+</ul></li>
+<li><a href="#yaml-header"><span class="toc-section-number">4</span> The YAML header</a></li>
 </ul>
 </div>
 
 <p>Hear are examples of simple formating in Markdown.
-Note that nothing except the YAML header section (section <a href="#yaml-header">5</a>) is specific to R Markdown.</p>
+Note that nothing except the YAML header section (section <a href="#yaml-header">4</a>) is specific to R Markdown.</p>
 <div id="headings" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Headings</h1>
 <p>We can create a heading with <code>#</code>, so for a level one heading we use:</p>
@@ -48,7 +51,7 @@ Note that nothing except the YAML header section (section <a href="#yaml-header"
 <li><code>### Heading level 3</code></li>
 </ul>
 <p>and so on.
-If we have numbered sections turned on (as we do in on this page), these heading will be automatically numbered.</p>
+If we have numbered sections turned on (as we do in on this page), these headings will be automatically numbered.</p>
 <div id="level-2-heading-example" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Level 2 heading example</h2>
 <p>Like so</p>
@@ -61,22 +64,95 @@ If we have numbered sections turned on (as we do in on this page), these heading
 <li><strong>bold text</strong> = <code>**bold text**</code></li>
 <li><em>italic text</em> = <code>*italic text*</code></li>
 <li><strong><em>bold and italic text</em></strong> = <code>***bold and italic text***</code></li>
+<li><u>Underlined text</u> = <code>&lt;u&gt;Underlined text&lt;/u&gt;</code></li>
+<li><del>Deleted text</del> = <code>~~Deleted text~~</code></li>
+<li><code>code</code> = <code>`code`</code></li>
+<li><blockquote>
+<p>blockquote = <code>&gt; blockquote</code></p>
+</blockquote></li>
+<li>==highlight== = <code>==highlight==</code></li>
+<li>H<sub>2</sub>O = <code>H~2~O</code></li>
+<li>X<sup>2</sup> = <code>X^2^</code></li>
 </ul>
+<p>Note that there are other ways of dealing with super and subscripts, please see the Equations section (section <a href="#math">3</a>) for that.</p>
+<p>For a horizontal rule use <code>---</code>:</p>
+<hr />
+<p>For footnotes we can use <code>[^1]</code> by the text, and then define the footnote on a separate line with <code>[^1]:</code></p>
+<p>Here’s a sentence with a footnote. <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <p>To start a new paragraph you need to leave a blank line.</p>
-<p>This is a second paragraph
-I’d recommend putting sentence on separate lines as I find it easier to read when looking at the source file, and it comes in handy if you use version control.</p>
+<p>This is a second paragraph.
+I’d recommend putting each sentence on separate lines as I find it easier to read when looking at the source file, and it comes in handy if you use version control, but this isn’t strictly needed.</p>
 <div id="lists" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Lists</h2>
-<p>Lorem ipsum dolor sit amet, <a href="">test link</a> consectetur adipiscing elit. <strong>Strong text</strong> pellentesque ligula commodo viverra vehicula. <em>Italic text</em> at ullamcorper enim. Morbi a euismod nibh. <u>Underline text</u> non elit nisl. <del>Deleted text</del> tristique, sem id condimentum tempus, metus lectus venenatis mauris, sit amet semper lorem felis a eros. Fusce egestas nibh at sagittis auctor. Sed ultricies ac arcu quis molestie. Donec dapibus nunc in nibh egestas, vitae volutpat sem iaculis. Curabitur sem tellus, elementum nec quam id, fermentum laoreet mi. Ut mollis ullamcorper turpis, vitae facilisis velit ultricies sit amet. Etiam laoreet dui odio, id tempus justo tincidunt id. Phasellus scelerisque nunc sed nunc ultricies accumsan.</p>
-<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. <code>Sed erat diam</code>, blandit eget felis aliquam, rhoncus varius urna. Donec tellus sapien, sodales eget ante vitae, feugiat ullamcorper urna. Praesent auctor dui vitae dapibus eleifend. Proin viverra mollis neque, ut ullamcorper elit posuere eget.</p>
+<p>To start an unordered list we can use a <code>-</code>.
+Note that there should be a blank line before and after the dash.
+For the sublist we simply indent the <code>-</code></p>
+<ul>
+<li>one item</li>
+<li>one item</li>
+<li>one item
+<ul>
+<li>one more item</li>
+<li>one more item</li>
+<li>one more item</li>
+</ul></li>
+</ul>
+<p>For an ordered list we can use a number followed by a period: <code>1.</code>.
+Note that the actual number doesn’t really matter as when the document is compiled it’ll render the list correctly.
+If you check the source file for this page you’ll see that I just used <code>1.</code> repeatedly, and yet it renders as you’d want it to.</p>
+<ol style="list-style-type: decimal">
+<li>the first item</li>
+<li>the second item</li>
+<li>the third item
+<ul>
+<li>one unordered item</li>
+<li>one unordered item</li>
+</ul></li>
+</ol>
+</div>
+<div id="links-and-images" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Links and images</h2>
+<p>To insert a link we wrap the text we want to appear in <code>[]</code> and follow with the address in <code>()</code>:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Hyperlink">Example link</a> = <code>[Example link](https://en.wikipedia.org/wiki/Hyperlink)</code></li>
+</ul>
+<p>We can include an image in the same way, but with an <code>!</code> at the begining:</p>
+<ul>
+<li><img src="example_image.jpg" alt="Example image" /> = <code>![Example image](example_image.jpg)</code></li>
+</ul>
+<p>Note that I wouldn’t recommend inserting images like this when working with R Markdown as there are alternatives that are easier to control.
+Please see <a href="../../../../2022/05/11/03-including-code/">this page</a> for more details on this.</p>
 </div>
 </div>
-<div id="greek-letters" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Greek letters</h1>
+<div id="math" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Equations</h1>
+<p>Inline LaTeX equations can be made by wrapping with <code>$</code>:</p>
+<ul>
+<li>Here is some inline maths <span class="math inline">\(f(k) = {n \choose k} p^{k} (1-p)^{n-k}\)</span> = <code>$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$</code></li>
+</ul>
+<p>Or for a equation block we can use double <code>$$</code>:</p>
+<p><span class="math display">\[f(k) = {n \choose k} p^{k} (1-p)^{n-k}\]</span></p>
+<p>which looks like this:</p>
+<p><code>$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$</code></p>
+<div id="greek-letters" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Greek letters</h2>
+<p>For Greek letters, we can just write the name of the letter after a <code>\</code>
+Note that this needs to be in LaTeX math, so either wrapped in single <code>$</code> or double <code>$$</code></p>
+<ul>
+<li><span class="math inline">\(\alpha\)</span> == <code>$\alpha$</code></li>
+<li><span class="math inline">\(\beta\)</span> == <code>$\beta$</code></li>
+<li>TNF<span class="math inline">\(\alpha\)</span> == <code>TNF$\alpha$</code></li>
+<li><span class="math inline">\(\frac{1}{\delta^2} \times \gamma_3\)</span> == <code>$\frac{1}{\delta^2} \times \gamma_3$</code></li>
+</ul>
+<p>There are lots of examples of more complex LaTeX math online if you need it, <a href="https://en.m.wikibooks.org/wiki/LaTeX/Mathematics">this page</a> for instance</p>
 </div>
-<div id="equations" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Equations</h1>
 </div>
-<div id="yaml-header" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> The YAML header</h1>
+<div id="yaml-header" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> The YAML header</h1>
+</div>
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>This is the footnote.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
