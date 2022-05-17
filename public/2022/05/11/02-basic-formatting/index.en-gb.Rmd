@@ -7,12 +7,120 @@ categories:
   - R
 tags:
   - R Markdown
-summary: 'Illustrating some basic formatting, inluding headers, bold text, lists, greek letters and equations'
+summary: 'Illustrating some basic formatting, including headers, bold text, lists, greek letters, equations and the YAML header'
 weight: 3
 coverImage: ./img/typewriter.jpg
 coverMeta: out
 coverSize: partial
 thumbnailImage: ./img/start_sign.jpg
 thumbnailImagePosition: left
+output:
+  blogdown::html_page:
+    number_sections: true
+    toc: true
 ---
+
+Hear are examples of simple formating in Markdown.
+Note that nothing except the YAML header section (section \@ref(yaml-header)) is specific to R Markdown.
+
+# Headings
+
+We can create a heading with `#`, so for a level one heading we use:
+
+- `# Heading level 1`
+- `## Heading level 2`
+- `### Heading level 3`
+
+and so on.
+If we have numbered sections turned on (as we do in on this page), these headings will be automatically numbered.
+
+## Level 2 heading example
+
+Like so
+
+# Simple text formating
+
+As demonstrated in the [prior page](../../../../2022/05/10/rational-and-markdown-basics), we can wrap text with `*` to get bold and italic text:
+
+- **bold text** = `**bold text**`
+- *italic text* = `*italic text*`
+- ***bold and italic text*** = `***bold and italic text***`
+- <u>Underlined text</u> = `<u>Underlined text</u>`
+- ~~Deleted text~~ = `~~Deleted text~~`
+- `code` = `` `code` ``
+- > blockquote = `> blockquote`
+- ==highlight== = `==highlight==`
+-  H~2~O = `H~2~O`
+- X^2^ = `X^2^`
+
+Note that there are other ways of dealing with super and subscripts, please see the Equations section (section \@ref(math)) for that.
+
+For a horizontal rule use `---`:
+
+---
+
+For footnotes we can use `[^1]` by the text, and then define the footnote on a separate line with `[^1]:`
+
+Here's a sentence with a footnote. [^1]
+
+[^1]: This is the footnote.
+
+To start a new paragraph you need to leave a blank line.
+
+This is a second paragraph.
+I'd recommend putting each sentence on separate lines as I find it easier to read when looking at the source file, and it comes in handy if you use version control, but this isn't strictly needed.
+
+## Lists
+
+To start an unordered list we can use a `-`.
+Note that there should be a blank line before and after the dash.
+For the sublist we simply indent the `-`
+
+- item 1
+- item 2
+- item 3
+  - subitem 1
+  - subitem 2
+  - subitem 3
+
+For an ordered list we can use a number followed by a period: `1.`.
+Note that the actual number doesn't really matter as when the document is compiled it'll render the list correctly.
+If you check the source file for this page you'll see that I just used `1.` repeatedly, and yet it renders as you'd want it to.
+
+1. item 1
+1. item 2
+1. item 3
+  - subitem 1
+  - subitem 2
+  - subitem 3
+
+## Links and images
+
+To insert a link we wrap the text we want to appear in `[]` and follow with the address in `()`:
+
+- [Example link](https://en.wikipedia.org/wiki/Hyperlink) = `[Example link](https://en.wikipedia.org/wiki/Hyperlink)`
+
+We can include an image in the same way, but with an `!` at the begining:
+
+- ![Example image](example_image.jpg) = `![Example image](example_image.jpg)`
+
+Note that I wouldn't recommend inserting images like this when working with R Markdown, as there are alternatives that are easier to control.
+Please see [this page](../../../../2022/05/11/03-including-code/) for more details on this.
+
+# Equations {#math}
+
+Inline LaTeX equations can be made by wrapping them with `$`:
+
+- Here is some inline maths $f(k) = {n \choose k} p^{k} (1-p)^{n-k}$ = `$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$`
+
+Or for a equation block we can use double `$$`:
+
+$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$
+
+which looks like this: `$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$`
+
+## Greek letters
+
+
+# The YAML header {#yaml-header}
 

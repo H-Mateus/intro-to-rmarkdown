@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Hugo tranquilpeak theme</title>
+    <title>Categories on Intro to R Markdown</title>
     <link>https://intro-to-rmarkdown.netlify.app/categories/</link>
-    <description>Recent content in Categories on Hugo tranquilpeak theme</description>
+    <description>Recent content in Categories on Intro to R Markdown</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://intro-to-rmarkdown.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />

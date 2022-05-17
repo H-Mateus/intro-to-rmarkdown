@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R Markdown on Hugo tranquilpeak theme</title>
+    <title>R Markdown on Intro to R Markdown</title>
     <link>https://intro-to-rmarkdown.netlify.app/tags/r-markdown/</link>
-    <description>Recent content in R Markdown on Hugo tranquilpeak theme</description>
+    <description>Recent content in R Markdown on Intro to R Markdown</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://intro-to-rmarkdown.netlify.app/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
@@ -31,7 +31,7 @@
       <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://intro-to-rmarkdown.netlify.app/2022/05/11/02-basic-formatting/</guid>
-      <description>Illustrating some basic formatting, inluding headers, bold text, lists, greek letters and equations</description>
+      <description>Illustrating some basic formatting, including headers, bold text, lists, greek letters, equations and the YAML header</description>
     </item>
     
     <item>
