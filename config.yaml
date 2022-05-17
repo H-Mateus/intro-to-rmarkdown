@@ -102,6 +102,16 @@ params:
   # Otherwise put your image in folder `static/_images/` (development)  or in `source/assets/images/` if you can't or don't want to build the theme,
   # and use relative url : `your-image.png`
   coverImage: ./img/cover.jpg
+  # Enable LaTeX math rendering? yes/no
+  #   If no, you can enable math on a per page basis as needed.
+  math: yes
+  # Enable diagram rendering? true/false
+  #   If false, you can enable diagrams on a per page basis as needed.
+  #diagram: yes
+  # Privacy pack
+  #   Show a cookie consent message to visitors
+  #   Anonymize IP in Google Analytics (if enabled)
+  #privacy_pack: false
   customJS:
     - async: yes
       crossorigin: anonymous
