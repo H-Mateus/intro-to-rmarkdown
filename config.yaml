@@ -19,12 +19,12 @@ markup:
     ordered: no
     startLevel: 1
 author:
-  bio: The resouces associated with the Intorduction to R Markdown by [Dr. Mateus Harrington](https://gmbernardoharrington.netlify.app/), initally offered as part of the [Researcher Summer school at Keele University 2022](https://www.keele.ac.uk/kiite/conferences/researchersummerschool/)
+  bio: The resources associated with the Introduction to R Markdown by [Dr. Mateus Harrington](https://gmbernardoharrington.netlify.app/), initally offered as part of the [Researcher Summer school at Keele University 2022](https://www.keele.ac.uk/kiite/conferences/researchersummerschool/)
   # this overrides any images
   #gravatarEmail: 
   job: Bioinformatician
   location: Wales
-  name: Intoduction to R Markdown
+  name: Introduction to R Markdown
   picture: ./img/rmarkdown_logo.jpg
 menu:
   links:
