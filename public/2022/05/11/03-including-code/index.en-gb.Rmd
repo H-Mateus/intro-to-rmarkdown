@@ -15,15 +15,18 @@ coverMeta: out
 coverSize: partial
 thumbnailImage: ./img/matrix.jpg
 thumbnailImagePosition: left
+output:
+  blogdown::html_page:
+    toc: true
+    number_sections: true
 ---
-
-R Markdown is an extension of basic Markdown which aims to provide an authoring framework for science.
 
 There are three basic components of an R Markdown document: the metadata, text and code.
 The metadata comes at the start of the document and is written between a pair of three dashes: `---`.
 The syntax for the metadata is [YAML (YAML Ain't Markup Language, formerly Yet Another Markup Language)](https://en.wikipedia.org/wiki/YAML) and is also called the YAML metadata or the YAML frontmatter.
 
 ***Importantly***, YAML is indentation sensitive!
+
 This means if the indentation is not right, you'll get an error when you try to compile the document.
 For this reason, I'd generally suggest copying YAML elements you want from one document to another, or using templates/snippets, especially when you're just getting started.
 See section \@ref(yaml-header) for some examples of YAML headers 
@@ -74,9 +77,9 @@ output:
 
 It's not just for show.
 The document won't compile if the indentation isn't right, so be mindful of that when playing with the YAML.
-Also notice that we can have comments in the YAML too, this can be great for reminding yourself what an option does when getting started.
+Also notice that we can have comments in the YAML too, which can be great for reminding yourself what an option does when getting started.
 
-I'd suggest playing around with the templates to explore further options, but here is one of my prefered starting YAMLs:
+I'd suggest playing around with the templates to explore further options, but here is one of my preferred starting YAMLs:
 
 ```
 ---
@@ -121,6 +124,96 @@ For a preview of the html themes see [here](https://www.datadreaming.org/post/r-
 
 # Code chunks and inline code {#code-chunks}
 
+With code chunks we can produce text, tables or graphics.
+Importantly, we can also control these code chunks by providing various chunk options within the curly braces:
+
+````markdown
+`r ''````{r, chunk-label, results='hide', fig.height=4}
+````
+
+The value of a chunk option can be an R expression, which can let us do some neat stuff like setting a code chunk to only evaluate for certain kinds of outputs:
+ 
+````markdown
+`r ''````{r, conditional-output, eval=!is_latex_output()}
+x = rnorm(100)
+```
+````
+
+So the above chunk will only be evaluated if the output is **not** LaTeX (for producing pdfs)
+
+You can find documentation for the various chunk options at [https://yihui.name/knitr/options](https://yihui.name/knitr/options) 
+
+The chunk label is optional, but should be the first option in the chunk header if used.
+Chunk labels can be useful for troubleshooting, as the label will be printed with any error in a particular chunk when knitting which can help pinpoint the issue.
+It is strongly recommended that one only used alphanumeric characters (`a-z`, `A-Z` and `0-9`) and dashes (`-`) in labels as any other characters may cause issues depending on the output format.
+
+If a certain chunck option needs to be used in a lots of chunks, you can set the option globablly in the first code chunk:
+
+
+````markdown
+`r ''````{r, setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, fig.width = 8)
+```
+````
+
+You can also refer to R objects in text like so:
+
+````markdown
+`r ''````{r}
+data <- rnorm(10) # some random data
+```
+
+The data had a mean of `r '\x60r mean(data)\x60'`,
+and a standard deviation of `r '\x60r sd(data)\x60'`.
+````
+
 # Figures
 
+Any figures produced from R code will be placed immediately after the code chunk they are generated from by default.
+
+So the following:
+
+````markdown
+`r ''````{r}
+plot(cars, pch = 18)
+```
+````
+
+looks like this (note that I've hidden the code in the output by setting `echo` to `FALSE`'):
+
+```{r, example-figure, echo=FALSE}
+plot(cars, pch = 18)
+```
+
+PDF documents are generated through the LaTeX files generated from R Markdown. 
+By default, LaTeX figures are set to float by default, so even if you generate a plot in a code chunk on the first page, the whole figure environment may float to the next page.
+Although this can be annoying, it's generally recommended that you ignore this until you finish your wirtting of the particular document.
+Otherwise you can end up spending loads of time trying to get a figure just right, only for it to be shifted as you continue to edit the remaining content.
+You may wish to fine-tune the positions once the content is complete using the `fig.pos` chunk option (e.g., `fig.pos = 'h')`. See https://www.overleaf.com/learn/latex/Positioning_images_and_tables for possible values of `fig.pos` and more general tips about this behaviour in LaTeX.
+
+To place multiple figures side-by-side from the same code chunk, you can use the `fig.show='hold'` option along with the `out.width` option.
+Figure \@ref(fig:hold-position) shows an example with two plots, each with a width of `50%`.
+
+```{r hold-position, fig.cap='Two plots side-by-side.', fig.show='hold', out.width='50%'}
+par(mar = c(4, 4, .2, .1))
+plot(cars, pch = 19)
+plot(pressure, pch = 17)
+```
+
+You can provide a figure caption using `fig.cap` in the chunk options.
+
+If you want to include a graphic that is not generated from R code, you may use the `knitr::include_graphics()` function, which gives you more control over the attributes of the image than the Markdown syntax of `![alt text or image title](path/to/image)` (e.g., you can specify the image width via `out.width`). 
+Figure \@ref(fig:include-graphics) provides an example of this.
+
+````markdown
+`r ''````{r, out.width='25%', fig.align='center', fig.cap='...'}
+knitr::include_graphics('images/hex-rmarkdown.png')
+```
+````
+
+```{r include-graphics, echo=FALSE, fig.cap='The R Markdown hex logo.', out.width='25%', fig.align='center'}
+knitr::include_graphics('rmarkdown_logo.jpg')
+```
+
 # Tables
+

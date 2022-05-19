@@ -17,10 +17,7 @@ thumbnailImage: ./img/i_love_markdown.jpg
 thumbnailImagePosition: left
 ---
 
+# Markdown
 
-
-<div id="markdown" class="section level1">
-<h1>Markdown</h1>
-<p>If you want some great documentation on Markdown, see the excellent <a href="https://www.markdownguide.org/getting-started/">Markdown guide here</a>.
-There are also several free online editors you can use to play around with Markdown, <a href="https://dillinger.io/">Dillinger</a> is one of best.</p>
-</div>
+If you want some great documentation on Markdown, see the excellent [Markdown guide here](https://www.markdownguide.org/getting-started/).
+There are also several free online editors you can use to play around with Markdown, [Dillinger](https://dillinger.io/) is one of best.

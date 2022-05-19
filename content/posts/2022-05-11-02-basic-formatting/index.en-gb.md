@@ -21,7 +21,7 @@ output:
 ---
 
 Hear are examples of simple formating in Markdown.
-Note that everything demonstrated here, except the Equations section (section \@ref(math)), is part of the base Markdown functionality.
+Note that everything demonstrated here, except the Equations section (section <a href="#math">4</a>), is part of the base Markdown functionality.
 
 # Headings
 
@@ -53,7 +53,7 @@ As demonstrated in the [prior page](../../../../2022/05/10/rational-and-markdown
 -  H~2~O = `H~2~O`
 - X^2^ = `X^2^`
 
-Note that there are other ways of dealing with super and subscripts, please see the Equations section (section \@ref(math)) for that.
+Note that there are other ways of dealing with super and subscripts, please see the Equations section (section <a href="#math">4</a>) for that.
 
 ## Paragraphs
 
@@ -125,11 +125,11 @@ Please see [this page](../../../../2022/05/11/03-including-code/) for more detai
 
 Inline LaTeX equations can be made by wrapping with `$`:
 
-- Here is some inline maths $f(k) = {n \choose k} p^{k} (1-p)^{n-k}$ = `$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$`
+- Here is some inline maths `\(f(k) = {n \choose k} p^{k} (1-p)^{n-k}\)` = `$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$`
 
 Or for a equation block we can use double `$$`:
 
-$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$
+`$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$`
 
 which looks like this: 
 
@@ -140,9 +140,9 @@ which looks like this:
 For Greek letters, we can just write the name of the letter after a `\`
 Note that this needs to be in LaTeX math, so either wrapped in single `$` or double `$$`
 
-- $\alpha$ == `$\alpha$`
-- $\beta$ == `$\beta$`
+- `\(\alpha\)` == `$\alpha$`
+- `\(\beta\)` == `$\beta$`
 - TNF$\alpha$ == `TNF$\alpha$`
-- $\frac{1}{\delta^2} \times \gamma_3$ == `$\frac{1}{\delta^2} \times \gamma_3$`
+- `\(\frac{1}{\delta^2} \times \gamma_3\)` == `$\frac{1}{\delta^2} \times \gamma_3$`
 
 There are lots of examples of more complex LaTeX math online if you need it, [this page](https://en.m.wikibooks.org/wiki/LaTeX/Mathematics) for instance
