@@ -9,6 +9,7 @@ canonifyurls: yes
 googleAnalytics: "G-W1MKDTDR60"
 permalinks:
   posts: "/:year/:month/:day/:slug/"
+ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
 taxonomies:
   archive: archives
   category: categories
@@ -18,6 +19,9 @@ markup:
     endLevel: 3
     ordered: no
     startLevel: 1
+  goldmark:
+    renderer:
+      unsafe: true
 author:
   bio: The resources associated with the Introduction to R Markdown by [Dr. Mateus Harrington](https://gmbernardoharrington.netlify.app/), initally offered as part of the [Researcher Summer school at Keele University 2022](https://www.keele.ac.uk/kiite/conferences/researchersummerschool/)
   # this overrides any images
