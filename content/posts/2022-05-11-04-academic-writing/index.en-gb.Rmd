@@ -15,16 +15,91 @@ coverMeta: out
 coverSize: partial
 thumbnailImage: ./img/academic.jpg
 thumbnailImagePosition: left
+bibliography: references.bib
+csl: nature.csl
+output:
+  blogdown::html_page:
+    toc: true
+    number_sections: true
 ---
 
 There are few additional aspects we have to think about for academic writing, this page covers the most important aspects of this.
 
-Firstly, if you aren't already using a [reference manager](https://en.wikipedia.org/wiki/Reference_management_software), then you really should be!
-Regardless of what you use for writing, a reference manager is a very useful way of building a collection of the papers you've read (or plan to read...), and allows you to easily insert citations into your writing.
-There are lots of software available, but I'd recommend [Zotero](https://www.zotero.org/) as it's free and open-source (as all good software should be!) and it has a neat [browser plugin](https://www.zotero.org/download/) which makes adding references to Zotero relatively painless.
+Firstly, if you aren't already using a [reference manager](https://en.wikipedia.org/wiki/Reference_management_software), then you really should be! Regardless of what you use for writing, a reference manager is a very useful way of building a collection of the papers you've read (or plan to read...), and allows you to easily insert citations into your writing. There are lots of software available, but I'd recommend [Zotero](https://www.zotero.org/) as it's free and open-source (as all good software should be!) and it has a neat [browser plugin](https://www.zotero.org/download/) which makes adding references to Zotero relatively painless.
 
-# Citations
+I provide links to some guides for setting up Zotero in the further resources page [here](../../../../2022/05/17/05-further-resources/).
+
+Any decent reference manager should allow you to export your references as a `.bib` file though, and that's all you need to do for this.
+
+In terms of citation style, we can use the [Citation Style Language project](https://citationstyles.org/) to specify how our references should be structured. The [Zotero Style Repository](https://www.zotero.org/styles) is a good resource to find different journal styles. Just download the one you want and add the relevant key to the `YAML` header:
+
+    csl: path/to/csl/file.csl
+
+# Inserting citations {#cite}
+
+So once we have our `.bib` file from our reference manager we just need to insert the relevant citation keys into out document.
+
+The syntax is to wrap the citation key/s in `[]` and seperate reference with a `;`. So an example would be:
+
+`This study found x.[@ackerman2010; @afjehi-sadat2010]`
+
+Which looks like this:
+
+This study found x.[@ackerman2010; @afjehi-sadat2010]
+
+Note that R Markdown will automatically insert a bibliography at the bottom of the document.
 
 # Cross-references
 
+We can easily reference figures and tables using the syntax `\@ref(tab:chuck-label-here)` for tables or `\@ref(fig:chuck-label-here)` for figures.
+Note that numbered sections need to be enabled for the section cross-reference to display a number.
+
+```` markdown
+## Example cross-references {#example-section-label}
+
+`r ''````{r cool-table, echo=FALSE}
+knitr::kable(head(mtcars), caption = "Cool table")
+```
+
+Table \@ref(tab:cool-table) shows our awesome data.
+
+`r ''````{r cool-figure, fig.cap='Cool figure', echo=FALSE}
+plot(mtcars$mpg, mtcars$hp)
+```
+
+Figure \@ref(fig:cool-figure) shows our awesome data again.
+
+See section \@ref(example-section-label) for more info on whatever.
+````
+
+Which looks like this:
+
+## Example cross-references {#example-section-label}
+
+```{r cool-table, echo=FALSE}
+knitr::kable(head(mtcars), caption = "Cool table")
+```
+
+Table \@ref(tab:cool-table) shows our awesome data.
+
+```{r cool-figure, fig.cap='Cool figure', echo=FALSE}
+plot(mtcars$mpg, mtcars$hp)
+```
+
+Figure \@ref(fig:cool-figure) shows our awesome data again.
+
+See section \@ref(example-section-label) for more info on whatever.
+
 # Collaboration
+
+So collaboration with R Markdown can either be wonderful or a bit of a pain depending on who you're working with.
+
+Ideally, you'd use [Git](https://git-scm.com/) in combination with a Git repository hosting service like [GitHub](https://github.com/) or [GitLab](https://about.gitlab.com/), which would allow you to easily have an large number of people from different timezones easily working on the same document/s with a clear record of who has contributed what and when.
+
+A great guide to using Git with R can be found [here](https://happygitwithr.com/)
+
+Partically however, many academics won't be familiar with Git and won't want to learn (even though it isn't that hard to get the basics...).
+In these cases it'll probably be easiest to compile to a Word doc and send your collaborators that to edit with tracked changes.
+This will require you to incorporate their changes back into R Markdown though, so it can be a hassle unfortunately.
+
+# References
