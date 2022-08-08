@@ -21,3 +21,10 @@ thumbnailImagePosition: left
 
 If you want some great documentation on Markdown, see the excellent [Markdown guide here](https://www.markdownguide.org/getting-started/).
 There are also several free online editors you can use to play around with Markdown, [Dillinger](https://dillinger.io/) is one of best.
+
+# Zotero
+
+Here are a couple of guides to setting up Zotero to play nicely with R Markdown:
+
+- A written guide [here](https://gsverhoeven.github.io/post/zotero-rmarkdown-csl/)
+- Another [here](https://www.anthonyschmidt.co/post/2021-10-25-a-zotero-workflow-for-r/)
