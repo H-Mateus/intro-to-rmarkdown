@@ -1,0 +1,225 @@
+---
+title: 04. Academic writing
+author: Mateus Harrington
+date: '2022-05-11'
+slug: 04-academic-writing
+categories:
+  - R
+tags:
+  - R Markdown
+summary: 'Considerations for academic writing, mainly how we can deal with references'
+weight: 5
+coverImage: ./img/academic_hat_bulbs.jpg
+coverCaption: "Image credit: [Unsplash](https://unsplash.com/photos/ItFTJoh1A8c)"
+coverMeta: out
+coverSize: partial
+thumbnailImage: ./img/academic.jpg
+thumbnailImagePosition: left
+bibliography: references.bib
+csl: nature.csl
+output:
+  blogdown::html_page:
+    toc: true
+    number_sections: true
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#cite" id="toc-cite"><span class="toc-section-number">1</span> Inserting citations</a></li>
+<li><a href="#cross-references" id="toc-cross-references"><span class="toc-section-number">2</span> Cross-references</a>
+<ul>
+<li><a href="#example-section-label" id="toc-example-section-label"><span class="toc-section-number">2.1</span> Example cross-references</a></li>
+</ul></li>
+<li><a href="#collaboration" id="toc-collaboration"><span class="toc-section-number">3</span> Collaboration</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
+</ul>
+</div>
+
+<p>There are few additional aspects we have to think about for academic writing, this page covers the most important aspects of this.</p>
+<p>Firstly, if you aren’t already using a <a href="https://en.wikipedia.org/wiki/Reference_management_software">reference manager</a>, then you really should be! Regardless of what you use for writing, a reference manager is a very useful way of building a collection of the papers you’ve read (or plan to read…), and allows you to easily insert citations into your writing. There are lots of software available, but I’d recommend <a href="https://www.zotero.org/">Zotero</a> as it’s free and open-source (as all good software should be!) and it has a neat <a href="https://www.zotero.org/download/">browser plugin</a> which makes adding references to Zotero relatively painless.</p>
+<p>I provide links to some guides for setting up Zotero in the further resources page <a href="../../../../2022/05/17/05-further-resources/">here</a>.</p>
+<p>Any decent reference manager should allow you to export your references as a <code>.bib</code> file though, and that’s all you need to do for this.</p>
+<p>In terms of citation style, we can use the <a href="https://citationstyles.org/">Citation Style Language project</a> to specify how our references should be structured. The <a href="https://www.zotero.org/styles">Zotero Style Repository</a> is a good resource to find different journal styles. Just download the one you want and add the relevant key to the <code>YAML</code> header:</p>
+<pre><code>csl: path/to/csl/file.csl</code></pre>
+<div id="cite" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Inserting citations</h1>
+<p>So once we have our <code>.bib</code> file from our reference manager we just need to insert the relevant citation keys into out document.</p>
+<p>The syntax is to wrap the citation key/s in <code>[]</code> and seperate reference with a <code>;</code>. So an example would be:</p>
+<p><code>This study found x.[@ackerman2010; @afjehi-sadat2010]</code></p>
+<p>Which looks like this:</p>
+<p>This study found x.<span class="citation"><sup><a href="#ref-ackerman2010" role="doc-biblioref">1</a>,<a href="#ref-afjehi-sadat2010" role="doc-biblioref">2</a></sup></span></p>
+<p>Note that R Markdown will automatically insert a bibliography at the bottom of the document.</p>
+</div>
+<div id="cross-references" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Cross-references</h1>
+<p>We can easily reference figures and tables using the syntax <code>\@ref(tab:chuck-label-here)</code> for tables or <code>\@ref(fig:chuck-label-here)</code> for figures.
+Note that numbered sections need to be enabled for the section cross-reference to display a number.</p>
+<pre class="markdown"><code>## Example cross-references {#example-section-label}
+
+```{r cool-table, echo=FALSE}
+knitr::kable(head(mtcars), caption = &quot;Cool table&quot;)
+```
+
+Table \@ref(tab:cool-table) shows our awesome data.
+
+```{r cool-figure, fig.cap=&#39;Cool figure&#39;, echo=FALSE}
+plot(mtcars$mpg, mtcars$hp)
+```
+
+Figure \@ref(fig:cool-figure) shows our awesome data again.
+
+See section \@ref(example-section-label) for more info on whatever.</code></pre>
+<p>Which looks like this:</p>
+<div id="example-section-label" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Example cross-references</h2>
+<table style="width:100%;">
+<caption><span id="tab:cool-table">Table 2.1: </span>Cool table</caption>
+<colgroup>
+<col width="26%" />
+<col width="7%" />
+<col width="5%" />
+<col width="7%" />
+<col width="5%" />
+<col width="7%" />
+<col width="8%" />
+<col width="8%" />
+<col width="4%" />
+<col width="4%" />
+<col width="7%" />
+<col width="7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">mpg</th>
+<th align="right">cyl</th>
+<th align="right">disp</th>
+<th align="right">hp</th>
+<th align="right">drat</th>
+<th align="right">wt</th>
+<th align="right">qsec</th>
+<th align="right">vs</th>
+<th align="right">am</th>
+<th align="right">gear</th>
+<th align="right">carb</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Mazda RX4</td>
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160</td>
+<td align="right">110</td>
+<td align="right">3.90</td>
+<td align="right">2.620</td>
+<td align="right">16.46</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Mazda RX4 Wag</td>
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160</td>
+<td align="right">110</td>
+<td align="right">3.90</td>
+<td align="right">2.875</td>
+<td align="right">17.02</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Datsun 710</td>
+<td align="right">22.8</td>
+<td align="right">4</td>
+<td align="right">108</td>
+<td align="right">93</td>
+<td align="right">3.85</td>
+<td align="right">2.320</td>
+<td align="right">18.61</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Hornet 4 Drive</td>
+<td align="right">21.4</td>
+<td align="right">6</td>
+<td align="right">258</td>
+<td align="right">110</td>
+<td align="right">3.08</td>
+<td align="right">3.215</td>
+<td align="right">19.44</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Hornet Sportabout</td>
+<td align="right">18.7</td>
+<td align="right">8</td>
+<td align="right">360</td>
+<td align="right">175</td>
+<td align="right">3.15</td>
+<td align="right">3.440</td>
+<td align="right">17.02</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Valiant</td>
+<td align="right">18.1</td>
+<td align="right">6</td>
+<td align="right">225</td>
+<td align="right">105</td>
+<td align="right">2.76</td>
+<td align="right">3.460</td>
+<td align="right">20.22</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<p>Table <a href="#tab:cool-table">2.1</a> shows our awesome data.</p>
+<div class="figure"><span style="display:block;" id="fig:cool-figure"></span>
+<img src="/posts/2022-05-11-04-academic-writing/index.en-gb_files/figure-html/cool-figure-1.png" alt="Cool figure" width="672" />
+<p class="caption">
+Figure 2.1: Cool figure
+</p>
+</div>
+<p>Figure <a href="#fig:cool-figure">2.1</a> shows our awesome data again.</p>
+<p>See section <a href="#example-section-label">2.1</a> for more info on whatever.</p>
+</div>
+</div>
+<div id="collaboration" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Collaboration</h1>
+<p>So collaboration with R Markdown can either be wonderful or a bit of a pain depending on who you’re working with.</p>
+<p>Ideally, you’d use <a href="https://git-scm.com/">Git</a> in combination with a Git repository hosting service like <a href="https://github.com/">GitHub</a> or <a href="https://about.gitlab.com/">GitLab</a>, which would allow you to easily have an large number of people from different timezones easily working on the same document/s with a clear record of who has contributed what and when.</p>
+<p>A great guide to using Git with R can be found <a href="https://happygitwithr.com/">here</a></p>
+<p>Partically however, many academics won’t be familiar with Git and won’t want to learn (even though it isn’t that hard to get the basics…).
+In these cases it’ll probably be easiest to compile to a Word doc and send your collaborators that to edit with tracked changes.
+This will require you to incorporate their changes back into R Markdown though, so it can be a hassle unfortunately.</p>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body" line-spacing="2">
+<div id="ref-ackerman2010" class="csl-entry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Ackerman, P., Morrison, S. A., McDowell, S. &amp; Vazquez, L. <a href="https://doi.org/10.1038/sc.2009.140">Using the Spinal Cord Independence Measure III to measure functional recovery in a post-acute spinal cord injury program</a>. <em>Spinal Cord</em> <strong>48</strong>, 380–387 (2010).</div>
+</div>
+<div id="ref-afjehi-sadat2010" class="csl-entry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Afjehi-Sadat, L. <em>et al.</em> <a href="https://doi.org/10.1021/pr901049a">Differential protein levels and post-translational modifications in spinal cord injury of the rat</a>. <em>Journal of Proteome Research</em> <strong>9</strong>, 1591–1597 (2010).</div>
+</div>
+</div>
+</div>
