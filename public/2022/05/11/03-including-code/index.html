@@ -275,21 +275,10 @@ if (!doNotTrack) {
           
           <div class="post-content markdown">
             <div class="main-content-wrap">
-              
-
-<div id="TOC">
-<ul>
-<li><a href="#yaml-header"><span class="toc-section-number">1</span> The YAML header</a></li>
-<li><a href="#code-chunks"><span class="toc-section-number">2</span> Code chunks and inline code</a></li>
-<li><a href="#figures"><span class="toc-section-number">3</span> Figures</a></li>
-<li><a href="#tables"><span class="toc-section-number">4</span> Tables</a></li>
-</ul>
-</div>
-
-<p>There are three basic components of an R Markdown document: the metadata, text and code.
+              <p>There are three basic components of an R Markdown document: the metadata, text and code.
 The metadata comes at the start of the document and is written between a pair of three dashes: <code>---</code>.
 The syntax for the metadata is <a href="https://en.wikipedia.org/wiki/YAML">YAML (YAML Ain’t Markup Language, formerly Yet Another Markup Language)</a> and is also called the YAML metadata or the YAML frontmatter.</p>
-<p><strong><em>Importantly</em></strong>, YAML is indentation sensitive!</p>
+<p><em><strong>Importantly</strong></em>, YAML is indentation sensitive!</p>
 <p>This means if the indentation is not right, you’ll get an error when you try to compile the document.
 For this reason, I’d generally suggest copying YAML elements you want from one document to another, or using templates/snippets, especially when you’re just getting started.
 See section <a href="#yaml-header">1</a> for some examples of YAML headers</p>
@@ -301,8 +290,7 @@ The syntax for the body is Markdown (see <a href="../../../../2022/05/11/02-basi
 <li>An inline code expression starts with a single backtick like <code>`r</code>, and ends with another backtick <code>`</code></li>
 </ul>
 <p>See section <a href="#code-chunks">2</a> for more details on including code</p>
-<div id="yaml-header" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> The YAML header</h1>
+<h1 id="the-yaml-header">The YAML header</h1>
 <p>Below is an example of a minimal YAML header:</p>
 <pre><code>---
 title: &quot;Hello R Markdown&quot;
@@ -311,7 +299,8 @@ date: &quot;2018-02-14&quot;
 output: html_document
 ---
 
-And our document body starts here</code></pre>
+And our document body starts here
+</code></pre>
 <p>In the above example we have 4 key-value pairs, where the keys are specific elements of the metadata, and the values are what they should be set to.
 Now here’s another example:</p>
 <pre><code>---
@@ -324,7 +313,8 @@ output:
     toc: true
   pdf_document:
     keep_tex: true
----</code></pre>
+---
+</code></pre>
 <p><strong>Notice the indentation!!!</strong></p>
 <p>It’s not just for show.
 The document won’t compile if the indentation isn’t right, so be mindful of that when playing with the YAML.
@@ -351,13 +341,13 @@ output:
     theme: united
     # enable the table of contents
     toc: yes
-    # and make it float, so it&#39;ll follow us around the document
+    # and make it float, so it'll follow us around the document
     toc_float:
       # Only show top level headers until we click on them
       collapsed: yes
     # add a button to download the .Rmd source
     code_download: true
-    # add the option to hide code for those who don&#39;t want it
+    # add the option to hide code for those who don't want it
     code_folding: show
     # make data frames display a bit nicer
     df_print: paged
@@ -365,126 +355,114 @@ output:
     toc: no
 # set the bib file for references
 bibliography: /path/to/bib_file.bib 
----</code></pre>
+---
+</code></pre>
 <p>For a preview of the html themes see <a href="https://www.datadreaming.org/post/r-markdown-theme-gallery/">here</a></p>
-</div>
-<div id="code-chunks" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Code chunks and inline code</h1>
+<h1 id="code-chunks-and-inline-code">Code chunks and inline code</h1>
 <p>With code chunks we can produce text, tables or graphics.
 Importantly, we can also control these code chunks by providing various chunk options within the curly braces:</p>
-<pre class="markdown"><code>```{r, chunk-label, results=&#39;hide&#39;, fig.height=4}</code></pre>
-<p>The value of a chunk option can be an R expression, which can let us do some neat stuff like setting a code chunk to only evaluate for certain kinds of outputs:</p>
-<pre class="markdown"><code>```{r, conditional-output, eval=!is_latex_output()}
-x = rnorm(100)
-```</code></pre>
-<p>So the above chunk will only be evaluated if the output is <strong>not</strong> LaTeX (for producing pdfs)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>```{r, chunk-label, results=&#39;hide&#39;, fig.height=4}
+</span></span></code></pre></div><p>The value of a chunk option can be an R expression, which can let us do some neat stuff like setting a code chunk to only evaluate for certain kinds of outputs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>```{r, conditional-output, eval=!is_latex_output()}
+</span></span><span style="display:flex;"><span>x = rnorm(100)
+</span></span><span style="display:flex;"><span>```
+</span></span></code></pre></div><p>So the above chunk will only be evaluated if the output is <strong>not</strong> LaTeX (for producing pdfs)</p>
 <p>You can find documentation for the various chunk options at <a href="https://yihui.name/knitr/options">https://yihui.name/knitr/options</a></p>
 <p>The chunk label is optional, but should be the first option in the chunk header if used.
 Chunk labels can be useful for troubleshooting, as the label will be printed with any error in a particular chunk when knitting which can help pinpoint the issue.
 It is strongly recommended that one only used alphanumeric characters (<code>a-z</code>, <code>A-Z</code> and <code>0-9</code>) and dashes (<code>-</code>) in labels as any other characters may cause issues depending on the output format.</p>
 <p>If a certain chunck option needs to be used in a lots of chunks, you can set the option globablly in the first code chunk:</p>
-<pre class="markdown"><code>```{r, setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, fig.width = 8)
-```</code></pre>
-<p>You can also refer to R objects in text like so:</p>
-<pre class="markdown"><code>```{r}
-data &lt;- rnorm(10) # some random data
-```
-
-The data had a mean of `r mean(data)`,
-and a standard deviation of `r sd(data)`.</code></pre>
-</div>
-<div id="figures" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Figures</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>```{r, setup, include=FALSE}
+</span></span><span style="display:flex;"><span>knitr::opts_chunk$set(echo = FALSE, fig.width = 8)
+</span></span><span style="display:flex;"><span>```
+</span></span></code></pre></div><p>You can also refer to R objects in text like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>```{r}
+</span></span><span style="display:flex;"><span>data &lt;<span style="color:#f92672">-</span> <span style="color:#a6e22e">rnorm</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">10</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">some</span> <span style="color:#a6e22e">random</span> <span style="color:#a6e22e">data</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">```</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">The</span> <span style="color:#a6e22e">data</span> <span style="color:#a6e22e">had</span> <span style="color:#a6e22e">a</span> <span style="color:#a6e22e">mean</span> <span style="color:#a6e22e">of</span> <span style="color:#e6db74">`r mean(data)`</span><span style="color:#960050;background-color:#1e0010">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">and</span> <span style="color:#a6e22e">a</span> <span style="color:#a6e22e">standard</span> <span style="color:#a6e22e">deviation</span> <span style="color:#a6e22e">of</span> <span style="color:#e6db74">`r sd(data)`</span><span style="color:#960050;background-color:#1e0010">.</span>
+</span></span></code></pre></div><h1 id="figures">Figures</h1>
 <p>Any figures produced from R code will be placed immediately after the code chunk they are generated from by default.</p>
 <p>So the following:</p>
-<pre class="markdown"><code>```{r}
-plot(cars, pch = 18)
-```</code></pre>
-<p>looks like this (note that I’ve hidden the code in the output by setting <code>echo</code> to <code>FALSE</code>’):</p>
-<p><img src="https://intro-to-rmarkdown.netlify.app/posts/2022-05-11-03-including-code/index.en-gb_files/figure-html/example-figure-1.png" width="672" /></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>```{r}
+</span></span><span style="display:flex;"><span>plot(cars, pch = 18)
+</span></span><span style="display:flex;"><span>```
+</span></span></code></pre></div><p>looks like this (note that I’ve hidden the code in the output by setting <code>echo</code> to <code>FALSE</code>’):</p>
+<img src="https://intro-to-rmarkdown.netlify.app/posts/2022-05-11-03-including-code/index.en-gb_files/figure-html/example-figure-1.png" width="672" />
 <p>PDF documents are generated through the LaTeX files generated from R Markdown.
 By default, LaTeX figures are set to float by default, so even if you generate a plot in a code chunk on the first page, the whole figure environment may float to the next page.
 Although this can be annoying, it’s generally recommended that you ignore this until you finish your wirtting of the particular document.
 Otherwise you can end up spending loads of time trying to get a figure just right, only for it to be shifted as you continue to edit the remaining content.
-You may wish to fine-tune the positions once the content is complete using the <code>fig.pos</code> chunk option (e.g., <code>fig.pos = 'h')</code>. See <a href="https://www.overleaf.com/learn/latex/Positioning_images_and_tables" class="uri">https://www.overleaf.com/learn/latex/Positioning_images_and_tables</a> for possible values of <code>fig.pos</code> and more general tips about this behaviour in LaTeX.</p>
-<p>To place multiple figures side-by-side from the same code chunk, you can use the <code>fig.show='hold'</code> option along with the <code>out.width</code> option.
-Figure <a href="#fig:hold-position">3.1</a> shows an example with two plots, each with a width of <code>50%</code>.</p>
-<pre class="r"><code>par(mar = c(4, 4, .2, .1))
-plot(cars, pch = 19)
-plot(pressure, pch = 17)</code></pre>
-<div class="figure"><span style="display:block;" id="fig:hold-position"></span>
-<img src="https://intro-to-rmarkdown.netlify.app/posts/2022-05-11-03-including-code/index.en-gb_files/figure-html/hold-position-1.png" alt="Two plots side-by-side." width="50%" /><img src="https://intro-to-rmarkdown.netlify.app/posts/2022-05-11-03-including-code/index.en-gb_files/figure-html/hold-position-2.png" alt="Two plots side-by-side." width="50%" />
-<p class="caption">
-Figure 3.1: Two plots side-by-side.
-</p>
-</div>
-<p>You can provide a figure caption using <code>fig.cap</code> in the chunk options.</p>
-<p>If you want to include a graphic that is not generated from R code, you may use the <code>knitr::include_graphics()</code> function, which gives you more control over the attributes of the image than the Markdown syntax of <code>![alt text or image title](path/to/image)</code> (e.g., you can specify the image width via <code>out.width</code>).
-<!-- Figure \@ref(fig:include-graphics) provides an example of this. --></p>
-<pre class="markdown"><code>```{r, out.width=&#39;25%&#39;, fig.align=&#39;center&#39;, fig.cap=&#39;The R Markdown hex logo.&#39;}
-knitr::include_graphics(&#39;images/hex-rmarkdown.png&#39;)
-```</code></pre>
-<!-- This chunk is disabled as this blogdown theme doesn't seem to play nice with image chunk options and I'm too lazy to try and fix it :P -->
+You may wish to fine-tune the positions once the content is complete using the <code>fig.pos</code> chunk option (e.g., <code>fig.pos = 'h')</code>. See <a href="https://www.overleaf.com/learn/latex/Positioning_images_and_tables">https://www.overleaf.com/learn/latex/Positioning_images_and_tables</a> for possible values of <code>fig.pos</code> and more general tips about this behaviour in LaTeX.</p>
+<!-- To place multiple figures side-by-side from the same code chunk, you can use the `fig.show='hold'` option along with the `out.width` option. -->
+<!-- Figure <a href="#fig:hold-position"><strong>??</strong></a> shows an example with two plots, each with a width of `50%`. -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">par</span>(mar <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">.2</span>, <span style="color:#ae81ff">.1</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">plot</span>(cars, pch <span style="color:#f92672">=</span> <span style="color:#ae81ff">19</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">plot</span>(pressure, pch <span style="color:#f92672">=</span> <span style="color:#ae81ff">17</span>)
+</span></span></code></pre></div><p>If you want to include a graphic that is not generated from R code, you may use the <code>knitr::include_graphics()</code> function, which gives you more control over the attributes of the image than the Markdown syntax of <code>![alt text or image title](path/to/image)</code> (e.g., you can specify the image width via <code>out.width</code>).</p>
+<!-- Figure <a href="#fig:include-graphics"><strong>??</strong></a> provides an example of this. -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>```{r, out.width=&#39;25%&#39;, fig.align=&#39;center&#39;, fig.cap=&#39;The R Markdown hex logo.&#39;}
+</span></span><span style="display:flex;"><span>knitr::include_graphics(&#39;images/hex-rmarkdown.png&#39;)
+</span></span><span style="display:flex;"><span>```
+</span></span></code></pre></div><!-- This chunk is disabled as this blogdown theme doesn't seem to play nice with image chunk options and I'm too lazy to try and fix it :P -->
 <!-- <p align="center"> -->
 <!--   <img width="600" height="200" src="rmarkdown_logo.jpg"> -->
 <!-- </p> -->
-</div>
-<div id="tables" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Tables</h1>
+<h1 id="tables">Tables</h1>
 <p>There are several packages for producing tables, but the simplest and most compatible with every output type is via <code>knitr::kable()</code>:</p>
-<pre class="markdown"><code>```{r tables-mtcars}
-knitr::kable(iris[1:5, ], caption = &#39;A caption&#39;)
-```</code></pre>
-<table>
-<caption><span id="tab:tables-mtcars">Table 4.1: </span>A caption</caption>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>```{r tables-mtcars}
+</span></span><span style="display:flex;"><span>knitr::kable(iris[1:5, ], caption = &#39;A caption&#39;)
+</span></span><span style="display:flex;"><span>```
+</span></span></code></pre></div><table>
 <thead>
-<tr class="header">
-<th align="right">Sepal.Length</th>
-<th align="right">Sepal.Width</th>
-<th align="right">Petal.Length</th>
-<th align="right">Petal.Width</th>
-<th align="left">Species</th>
+<tr>
+<th style="text-align:right">Sepal.Length</th>
+<th style="text-align:right">Sepal.Width</th>
+<th style="text-align:right">Petal.Length</th>
+<th style="text-align:right">Petal.Width</th>
+<th style="text-align:left">Species</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
+<tr>
+<td style="text-align:right">5.1</td>
+<td style="text-align:right">3.5</td>
+<td style="text-align:right">1.4</td>
+<td style="text-align:right">0.2</td>
+<td style="text-align:left">setosa</td>
 </tr>
-<tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
+<tr>
+<td style="text-align:right">4.9</td>
+<td style="text-align:right">3.0</td>
+<td style="text-align:right">1.4</td>
+<td style="text-align:right">0.2</td>
+<td style="text-align:left">setosa</td>
 </tr>
-<tr class="odd">
-<td align="right">4.7</td>
-<td align="right">3.2</td>
-<td align="right">1.3</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
+<tr>
+<td style="text-align:right">4.7</td>
+<td style="text-align:right">3.2</td>
+<td style="text-align:right">1.3</td>
+<td style="text-align:right">0.2</td>
+<td style="text-align:left">setosa</td>
 </tr>
-<tr class="even">
-<td align="right">4.6</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
+<tr>
+<td style="text-align:right">4.6</td>
+<td style="text-align:right">3.1</td>
+<td style="text-align:right">1.5</td>
+<td style="text-align:right">0.2</td>
+<td style="text-align:left">setosa</td>
 </tr>
-<tr class="odd">
-<td align="right">5.0</td>
-<td align="right">3.6</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
+<tr>
+<td style="text-align:right">5.0</td>
+<td style="text-align:right">3.6</td>
+<td style="text-align:right">1.4</td>
+<td style="text-align:right">0.2</td>
+<td style="text-align:left">setosa</td>
 </tr>
 </tbody>
 </table>
+<p>Table 1: A caption</p>
 <p>Tables in non-LaTeX output formats will always be placed after the code block.
 For LaTeX/PDF output formats, tables have the same issue as figures: they may float.
 If you want to avoid this behaviour, you will need to use the LaTeX package <a href="https://www.ctan.org/pkg/longtable">longtable</a>, which can break tables across multiple pages.
@@ -494,7 +472,6 @@ Formatting tables can be a very complicated task, especially when certain cells 
 It is even more complicated when you have to consider different output formats.
 For example, it is difficult to make a complex table work for both PDF and HTML output.
 This can be annoying, but sometimes you may have to consider alternative ways of presenting data, such as using graphics.</p>
-</div>
 
               
 

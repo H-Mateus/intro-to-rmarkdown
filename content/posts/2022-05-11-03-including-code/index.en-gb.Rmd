@@ -220,6 +220,28 @@ knitr::include_graphics('rmarkdown_logo.jpg')
 <!--   <img width="600" height="200" src="rmarkdown_logo.jpg"> -->
 <!-- </p> -->
 
+## Figure captions
+
+I showed how to include a figure caption as a chunk option above, but you can also define a caption outside of the chunk in order to take advantage of the markdown formating:
+
+````markdown
+(ref:external-caption) I'm outside the chunk! I can have **formatting** and *stuff*.
+
+`r ''````{r, external-caption, fig.cap= '(\ref:external-caption)'}
+plot(cars, pch = 18)
+```
+````
+
+**Note that the `\` in `fig.cap` is only added to stop R Markdown rendering the content of the reference, you shouldn't include the `\` if you use this yourself!**
+
+Which looks like this:
+
+(ref:external-caption) I'm outside the chunk! I can have **formatting** and *stuff*.
+
+```{r, external-caption, fig.cap= '(ref:external-caption)'}
+plot(cars, pch = 18)
+```
+
 # Tables
 
 There are several packages for producing tables, but the simplest and most compatible with every output type is via `knitr::kable()`:
