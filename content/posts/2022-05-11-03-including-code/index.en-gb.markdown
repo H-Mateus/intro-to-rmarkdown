@@ -84,7 +84,7 @@ I’d suggest playing around with the templates to explore further options, but 
          affiliation: Get Shiz Done University
        - name: Jack, the Supposed Contributor
          affiliation: Living Room Couch
-    date: "2022-08-18"
+    date: "2022-08-19"
     abstract: |
      A great summary of our awesome paper!
      <br><br><br>
@@ -93,7 +93,7 @@ I’d suggest playing around with the templates to explore further options, but 
         # Set the highlight colour to a nice orange
         highlight: tango
         # I like my sections numbered
-        number_sections: yes
+        number_sections: true
         # There are lots of nice built in html themes you can use!
         theme: united
         # enable the table of contents
@@ -115,6 +115,39 @@ I’d suggest playing around with the templates to explore further options, but 
     ---
 
 For a preview of the html themes see [here](https://www.datadreaming.org/post/r-markdown-theme-gallery/)
+
+Note that this is an aspect that differs slightly in Quarto.
+The main difference is the change of the `output:` key to `format:`, and the removal of `_document` so `html_document` becomes `html` in Quarto.
+They have also changed the `_` to `-` so `number_sections:` becomes `number-sections:`
+
+Here is the above YAML in a Quarto format:
+
+    ---
+    title: Our groundbreaking analysis that will lead to world peace
+    author:
+       - name: John, the Problem Solver
+         affiliation: Get Shiz Done University
+       - name: Jack, the Supposed Contributor
+         affiliation: Living Room Couch
+    date: "2022-08-19"
+    abstract: |
+     A great summary of our awesome paper!
+     <br><br><br>
+    format:
+      html:
+        number-sections: true
+        theme: united
+        toc: true
+        toc-float:
+          collapsed: true
+        code-folding: show
+      pdf:
+        toc: false
+    # set the bib file for references
+    bibliography: /path/to/bib_file.bib 
+    ---
+
+Also note that some old keys don’t exist and some new keys are present in Quarto.
 
 # Code chunks and inline code
 
@@ -159,6 +192,19 @@ data <- rnorm(10) # some random data
 The data had a mean of `r mean(data)`,
 and a standard deviation of `r sd(data)`.
 ````
+
+Note that chunk options are another area where Quarto differs.
+It is backwards compatible with the R Markdown syntax I’ve shown above, but the prefered method is to include the options in the body rather than the heading like so:
+
+```` markdown
+```{r}
+#| label: load-packages
+#| include: false
+library(tidyverse)
+```
+````
+
+The `.` separator is also a `-` in Quarto, so `fig.cap=` becomes `fig-cap:`
 
 # Figures
 

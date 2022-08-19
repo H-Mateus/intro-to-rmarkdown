@@ -90,6 +90,37 @@ Figure \@ref(fig:cool-figure) shows our awesome data again.
 
 See section \@ref(example-section-label) for more info on whatever.
 
+This is another area where Quarto differs slightly.
+They've introduced a syntax for specifying the type of reference in the label so: `fig-`, `tbl-` and `sec-` for figure, table and sections respectively.
+And when citing these in text you just use the `@` prefix followed by the label itself.
+
+Here is an example of what this looks like in the source:
+
+
+````markdown
+
+# Introduction {#sec-intro}
+
+See @sec-intro for more info.
+
+`r ''````{r}
+#| label: fig-example
+#| fig-cap: A plot
+plot(cars)
+```
+
+See @fig-example for the data
+
+`r ''````{r}
+#| label: tbl-example
+#| tbl-cap: "A table"
+knitr::kable(head(cars))
+```
+
+See @tbl-example for the table
+
+````
+
 # Collaboration
 
 So collaboration with R Markdown can either be wonderful or a bit of a pain depending on who you're working with.
@@ -98,8 +129,10 @@ Ideally, you'd use [Git](https://git-scm.com/) in combination with a Git reposit
 
 A great guide to using Git with R can be found [here](https://happygitwithr.com/)
 
-Partically however, many academics won't be familiar with Git and won't want to learn (even though it isn't that hard to get the basics...).
-In these cases it'll probably be easiest to compile to a Word doc and send your collaborators that to edit with tracked changes.
-This will require you to incorporate their changes back into R Markdown though, so it can be a hassle unfortunately.
+Practically however, many academics won't be familiar with Git and won't want to learn (even though it isn't that hard to get the basics...).
+In these cases it'll probably be easiest to compile to a Word doc and send your collaborators that (or use something like Google Docs) to edit with tracked changes.
+This will require you to incorporate their changes back into R Markdown though, so it can be a bit of a hassle unfortunately.
+
+Personally, I've found the benefits of this paradigm worth it, and some day I think Git will become more widespread in academia as more scientists move to using programming languages for analysis.
 
 # References

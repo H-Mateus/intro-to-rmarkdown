@@ -98,7 +98,7 @@ output:
     # Set the highlight colour to a nice orange
     highlight: tango
     # I like my sections numbered
-    number_sections: yes
+    number_sections: true
     # There are lots of nice built in html themes you can use!
     theme: united
     # enable the table of contents
@@ -121,6 +121,41 @@ bibliography: /path/to/bib_file.bib
 ```
 
 For a preview of the html themes see [here](https://www.datadreaming.org/post/r-markdown-theme-gallery/)
+
+Note that this is an aspect that differs slightly in Quarto.
+The main difference is the change of the `output:` key to `format:`, and the removal of `_document` so `html_document` becomes `html` in Quarto.
+They have also changed the `_` to `-` so `number_sections:` becomes `number-sections:`
+
+Here is the above YAML in a Quarto format:
+
+```
+---
+title: Our groundbreaking analysis that will lead to world peace
+author:
+   - name: John, the Problem Solver
+     affiliation: Get Shiz Done University
+   - name: Jack, the Supposed Contributor
+     affiliation: Living Room Couch
+date: "`r lubridate::today()`"
+abstract: |
+ A great summary of our awesome paper!
+ <br><br><br>
+format:
+  html:
+    number-sections: true
+    theme: united
+    toc: true
+    toc-float:
+      collapsed: true
+    code-folding: show
+  pdf:
+    toc: false
+# set the bib file for references
+bibliography: /path/to/bib_file.bib 
+---
+```
+
+Also note that some old keys don't exist and some new keys are present in Quarto.
 
 # Code chunks and inline code {#code-chunks}
 
@@ -166,6 +201,19 @@ data <- rnorm(10) # some random data
 The data had a mean of `r '\x60r mean(data)\x60'`,
 and a standard deviation of `r '\x60r sd(data)\x60'`.
 ````
+
+Note that chunk options are another area where Quarto differs.
+It is backwards compatible with the R Markdown syntax I've shown above, but the prefered method is to include the options in the body rather than the heading like so:
+
+````markdown
+`r ''````{r}
+#| label: load-packages
+#| include: false
+library(tidyverse)
+```
+````
+
+The `.` separator is also a `-` in Quarto, so `fig.cap=` becomes `fig-cap:`
 
 # Figures
 
@@ -266,5 +314,3 @@ Formatting tables can be a very complicated task, especially when certain cells 
 It is even more complicated when you have to consider different output formats. 
 For example, it is difficult to make a complex table work for both PDF and HTML output. 
 This can be annoying, but sometimes you may have to consider alternative ways of presenting data, such as using graphics.
-
-
